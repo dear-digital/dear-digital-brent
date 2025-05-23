@@ -3895,3 +3895,8 @@ text-component {
   transform: none;
   box-shadow: none;
 }
+
+.header-menu-selector[class*="color-scheme-"] {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+}

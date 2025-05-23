@@ -120,15 +120,15 @@
 }
 {% endschema %}
 
-<div class="header-menu-selector color-{{ section.settings.color_scheme }}" style="height: {{ section.settings.height }}px; padding: {{ section.settings.padding_top }}px {{ section.settings.padding_right }}px {{ section.settings.padding_bottom }}px {{ section.settings.padding_left }}px;">  <nav>
-    <ul class="menu-list" style="justify-content: {{ section.settings.alignment }};">
+<div class="header-menu-selector color-{{ section.settings.color_scheme }}">
+  <div class="header-menu-selector__inner" style="height: {{ section.settings.height }}px; padding: {{ section.settings.padding_top }}px {{ section.settings.padding_right }}px {{ section.settings.padding_bottom }}px {{ section.settings.padding_left }}px;">    <ul class="menu-list" style="justify-content: {{ section.settings.alignment }};">
       {% for link in section.settings.menu.links %}
         <li>
           <a href="{{ link.url }}">{{ link.title }}</a>
         </li>
       {% endfor %}
     </ul>
-  </nav>
+  </div>
 </div>
 
 {% stylesheet %}
