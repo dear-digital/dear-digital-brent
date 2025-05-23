@@ -1,0 +1,149 @@
+{% schema %}
+{
+  "name": "Header Menu Selector",
+  "tag": "section",
+  "class": "header-menu-selector",
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Select Menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "select",
+      "id": "menu_style",
+      "label": "Menu Style",
+      "options": [
+        {
+          "value": "text",
+          "label": "Text Only"
+        },
+        {
+          "value": "collection_images",
+          "label": "Collection Images"
+        },
+        {
+          "value": "featured_products",
+          "label": "Featured Products"
+        },
+        {
+          "value": "featured_collections",
+          "label": "Featured Collections"
+        }
+      ],
+      "default": "text"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "height",
+      "label": "Height",
+      "min": 30,
+      "max": 200,
+      "step": 10,
+      "default": 100,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "min": 0,
+      "max": 50,
+      "step": 5,
+      "default": 10,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_right",
+      "label": "Padding Right",
+      "min": 0,
+      "max": 50,
+      "step": 5,
+      "default": 10,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "min": 0,
+      "max": 50,
+      "step": 5,
+      "default": 10,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_left",
+      "label": "Padding Left",
+      "min": 0,
+      "max": 50,
+      "step": 5,
+      "default": 10,
+      "unit": "px"
+    },
+    {
+      "type": "select",
+      "id": "alignment",
+      "label": "Menu Alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Header Menu Selector",
+      "category": "Header"
+    }
+  ]
+}
+{% endschema %}
+
+<div class="header-menu-selector" style="height: {{ section.settings.height }}px; padding: {{ section.settings.padding_top }}px {{ section.settings.padding_right }}px {{ section.settings.padding_bottom }}px {{ section.settings.padding_left }}px; background-color: var(--color-background); color: var(--color-text);">
+  <nav>
+    <ul class="menu-list" style="justify-content: {{ section.settings.alignment }};">
+      {% for link in section.settings.menu.links %}
+        <li>
+          <a href="{{ link.url }}">{{ link.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </nav>
+</div>
+
+{% stylesheet %}
+  .header-menu-selector {
+    display: flex;
+    align-items: center;
+  }
+  .header-menu-selector .menu-list {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    width: 100%;
+  }
+  .header-menu-selector .menu-list li {
+    margin-right: 20px;
+  }
+{% endstylesheet %} 
