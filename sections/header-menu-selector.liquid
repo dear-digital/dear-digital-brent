@@ -120,8 +120,7 @@
 }
 {% endschema %}
 
-<div class="header-menu-selector" style="height: {{ section.settings.height }}px; padding: {{ section.settings.padding_top }}px {{ section.settings.padding_right }}px {{ section.settings.padding_bottom }}px {{ section.settings.padding_left }}px; background-color: var(--color-background); color: var(--color-text);">
-  <nav>
+<div class="header-menu-selector color-{{ section.settings.color_scheme }}" style="height: {{ section.settings.height }}px; padding: {{ section.settings.padding_top }}px {{ section.settings.padding_right }}px {{ section.settings.padding_bottom }}px {{ section.settings.padding_left }}px;">  <nav>
     <ul class="menu-list" style="justify-content: {{ section.settings.alignment }};">
       {% for link in section.settings.menu.links %}
         <li>
